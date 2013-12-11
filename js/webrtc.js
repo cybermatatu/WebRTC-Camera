@@ -199,4 +199,4 @@
 	else {
 		alert("getUserMedia is not supported in this browser.");
 	}
-})(this, document);
+})(this, this.document);
