@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<head>
+	<meta charset="UTF-8" />
+	<title>Web Real Time Communication API</title>
+	<link rel="stylesheet" href="css/webrtc.css" media="all" />
+	<meta name="description" content="A Web Real Time Communication API" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width" />
+	<meta name="robots" content="index, follow" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="mobile-web-app-capable" content="yes" />
+</head>
+<body>
+	<div class="btn-menu">
+		<!-- Camera Effects -->
+		 <select class="efc" id="effect"> 
+		     <option value="none">none</option>
+		     <option value="blur">blur</option>
+		     <option value="contrast">contrast</option>
+		     <option value="brightness">brightness</option>     
+		     <option value="transform-top">transform-top</option>     
+		     <option value="transform">transform</option>     
+		     <option value="hue-rotate">hue-rotate</option>     
+		     <option value="hue-rotate2">hue-rotate2</option>     
+		     <option value="hue-rotate3">hue-rotate3</option>     
+		     <option value="saturate">saturate</option>     
+		     <option value="grayscale">grayscale</option>     
+		     <option value="invert">invert</option>     
+		</select>
+
+		<button class="button" type="button" id="picturebutton">Take a photo</button>
+		<button class="button" type="button" id="play-pause"></button>
+	    <button class="button" type="button" id="fullscreen">Enter fullscreen</button>
+	    <div class="image-dl"><a id="dl-photo">No image</a></div>
+	</div>
+
+	<!-- Empty <p> tag, which will be filled with text when the video loads -->
+	<p class="text" id="dimension"></p>
+
+	<div class="wrapper">
+		<div class="a">
+			<!-- Show the video -->
+			<video id="video" autoplay>Video is not supported by your browser. Please install Chrome, Firefox or Opera!</video>
+		</div>
+
+		<div class="a">
+			<!-- Take a photo for your album -->
+			<canvas id="canvas"></canvas>
+
+			<!-- Store the canvas image -->
+			<div class="stack rotated-left">   
+				<img src="" id="photo" alt="Photo from camera" title="Photo from camera" />
+			</div>
+		</div>
+	</div>
+
+	<script src="js/webrtc.js"></script>
+
+</body>
+</html>
