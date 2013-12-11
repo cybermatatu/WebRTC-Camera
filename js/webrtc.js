@@ -26,7 +26,7 @@
         };
     var doc = window.document;
     var docEl = doc.documentElement;
-    var isFirefox = typeof InstallTrigger !== 'undefined'; 
+    var isFirefox = typeof InstallTrigger !== "undefined"; 
 
 	/* Browser prefixes/vendors */
     navigator.getUserMedia  =   navigator.getUserMedia        ||    /* W3C */
