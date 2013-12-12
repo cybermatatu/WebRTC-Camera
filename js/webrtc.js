@@ -1,6 +1,6 @@
 ;(function (window, document) {
 
-	/* ECMAScript 5 FTW! */
+  /* ECMAScript 5 FTW! */
     "use strict";
 
     var video                   = document.querySelector("#video");
@@ -26,9 +26,9 @@
         };
     var doc = window.document;
     var docEl = doc.documentElement;
-    var isFirefox = typeof InstallTrigger !== "undefined"; 
+    var isFirefox = typeof InstallTrigger !== 'undefined'; 
 
-	/* Browser prefixes/vendors */
+  /* Browser prefixes/vendors */
     navigator.getUserMedia  =   navigator.getUserMedia        ||    /* W3C */
                                 navigator.webkitGetUserMedia  ||     /* -Webkit- browsers like Chrome, Safari & Opera 12.10*/
                                 navigator.mozGetUserMedia     ||    /* Mozilla Firefox 22+. Added a hack for Firefox < 19 */
@@ -103,11 +103,11 @@
         }
     }, false);
 
-	/**
+  /**
      * Lunch fullscreen
      * Code from HTML5rocks
      */
-	fullScreenButton.addEventListener("click", function () {
+  fullScreenButton.addEventListener("click", function () {
         if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement) { 
             requestFullScreen.call(docEl);
             fullScreenButton.innerHTML = "Exit fullscreen";
@@ -118,8 +118,8 @@
         }
     }, false);
 
-	/* Get a single frame from the video and parse it into a canvas element. */
-	pictureButton.addEventListener("click", function (e) {
+  /* Get a single frame from the video and parse it into a canvas element. */
+  pictureButton.addEventListener("click", function (e) {
         /* Check for full canvas support */
         if (canvas.getContext) {
             canvas.setAttribute("width", width);
@@ -155,27 +155,27 @@
         else {
             alert("The canvas API is not supported in this browser.");
         }
-	}, false);
+  }, false);
 
-	/**
+  /**
      *
      * Get video dimensions and store them into a <p> tag
      * I delay this event with 3.7s, otherwise Firefox (and other browsers)? will load the event much later
      * after the <video> has loaded, and prompting 0px for width and height. Even the "true" attribute didn't help. :(
      *
      */
-	doc.addEventListener("loadedmetadata", function () {
-		window.setTimeout(function () {
-			dimension.innerHTML = "Video dimension is: " + video.videoWidth + "x" + video.videoHeight + "px.";
-		}, 3700);
-	}, true);
+  doc.addEventListener("loadedmetadata", function () {
+    window.setTimeout(function () {
+      dimension.innerHTML = "Video dimension is: " + video.videoWidth + "x" + video.videoHeight + "px.";
+    }, 3700);
+  }, true);
 
-	/**
-	 *
-	 * Get the value from the <select> menu and apply it as a class on the <video>
-     * Firefox doesn't support CSS3 effects, therefore we don't need a <select> dropdown menu.
-	 *
-	 */
+  /**
+   *
+   * Get the value from the <select> menu and apply it as a class on the <video>
+   * Firefox doesn't support CSS3 effects, therefore we don't need a <select> dropdown menu.
+   *
+   */
      
     if (isFirefox) {
         document.querySelector("#effect").style.display = 'none';
@@ -186,17 +186,17 @@
         }, false);
     }
 
-	/**
-	 *
-	 * This is where all the magic happens.
-	 *
-	 */
-	if (navigator.getUserMedia) {
-		  navigator.getUserMedia(constraints, videoSuccess, bigFail);
-		  videoPlayButton.innerHTML = "Pause camera";
-		  trace("Requesting access to local camera and microphone.");
-	}
-	else {
-		alert("getUserMedia is not supported in this browser.");
-	}
-})(this, this.document);
+  /**
+   *
+   * This is where all the magic happens.
+   *
+   */
+  if (navigator.getUserMedia) {
+      navigator.getUserMedia(constraints, videoSuccess, bigFail);
+      videoPlayButton.innerHTML = "Pause camera";
+      trace("Requesting access to local camera and microphone.");
+  }
+  else {
+    alert("getUserMedia is not supported in this browser.");
+  }
+})(this, document);
